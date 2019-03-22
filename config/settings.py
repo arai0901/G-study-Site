@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-"""
+
 try:
     if 'DATABASES' not in locals():
         DATABASES = {}
@@ -103,6 +103,7 @@ DATABASES = {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
+"""
 """
 DATABASES = {
     'default': {
