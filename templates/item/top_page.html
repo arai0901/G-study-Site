@@ -22,9 +22,9 @@
       </tr>
       {% for ritsu_ in ritsu %}
       <tr>
-        <td><p><a href={% url "item:prob_list" ritsu_.0 %}>{{ritsu_.0}}章：{{ritsu_.1}}</a></p></td>
-        <td>{{ritsu_.2}}％</td>
+        <td><p><a href={% url "item:prob_list" ritsu_.0 %}>{{ritsu_.1}}章：{{ritsu_.2}}</a></p></td>
         <td>{{ritsu_.3}}％</td>
+        <td>{{ritsu_.4}}％</td>
       </tr>
       {% endfor %}
     </table>
