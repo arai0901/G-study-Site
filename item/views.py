@@ -23,8 +23,9 @@ class Top_page(LoginRequiredMixin, View):
             shintyoku_kensu = []
             shintyoku_ritsu = []
             seikai_ritsu = []
+            shou_num = int(Shou.objects.all()[0].id)
         for i in range(shou_kensu):
-            kensu_ = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=i+1).count()
+            kensu_ = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=shou_num).count()
             shintyoku_kensu.append(kensu_)
 
             if mondai_kensu[i] != 0:
@@ -32,8 +33,8 @@ class Top_page(LoginRequiredMixin, View):
             else:
                 shintyoku_ritsu.append(0)
 
-            正解数 = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=i+1, seigo='正解').count()
-            不正解数 = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=i+1, seigo='不正解').count()
+            正解数 = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=shou_num, seigo='正解').count()
+            不正解数 = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=shou_num, seigo='不正解').count()
 
             try:
                 seikai_ritsu_ = 正解数/(正解数 + 不正解数)
@@ -44,6 +45,9 @@ class Top_page(LoginRequiredMixin, View):
                         seikai_ritsu.append(0)
                     else:
                         seikai_ritsu.append(100)
+
+            shou_num += 10
+
         ritsu = []
         shou_num = int(Shou.objects.all()[0].id)
         for i in range(len(seikai_ritsu)):
