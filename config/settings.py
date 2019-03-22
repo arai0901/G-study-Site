@@ -72,7 +72,6 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'config.wsgi.application'
-"""
 try:
     if 'DATABASES' not in locals():
         DATABASES = {}
@@ -103,6 +102,7 @@ DATABASES = {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
+"""
 """
 DATABASES = {
     'default': {
@@ -149,14 +149,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-"""
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
-"""
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
