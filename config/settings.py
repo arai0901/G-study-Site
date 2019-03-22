@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -68,27 +69,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_3b7685f47189d39',
-        'USER': 'bccfc56992d357',
-        'PASSWORD': '5a9caad6',
+        'NAME': 'heroku_4ab95de69d69d1d',
+        'USER': 'b9209106345afd',
+        'PASSWORD': 'b542f6ce',
         'HOST': 'us-cdbr-iron-east-03.cleardb.net',
         'PORT': '',
         'OPTIONS': {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
-"""
 
 """
 DATABASES = {
