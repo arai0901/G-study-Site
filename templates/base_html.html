@@ -41,7 +41,7 @@
       <div class="sidebar">
         {% if user.is_authenticated %}
         <ul class = "nab" style="text-align:left;">
-          <li><a href = {% url "item:top_page" %}>学習サイト</a></li>
+          <li><a href = {% url "item:top_page" %}>マイページ</a></li>
           {% if user.auth_view %}
           <li><a href = {% url "item:top_page" %}>テスト結果確認</a></li>
           {% if user.auth_edit %}
