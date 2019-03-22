@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+    <p>item_サンプルですよー！</p>
+
+    {% for item in items %}
+    <p>ID：{{item.id}}、名称：{{item.name}}、価格{{item.price}}</p>
+    {% endfor %}
+
+{% endblock %}

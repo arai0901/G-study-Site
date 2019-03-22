@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>学習サイト</title>
+    <link rel="stylesheet" type="text/css" href= {% static "css/style.css" %}>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+          <a class="logo" href={% url "item:top_page" %}>
+            <img src={% static "images/item/logo2.PNG" %}>
+          </a>
+          <ul>
+            <li>
+              <a href="/">
+                <img class="active" src="https://aiacademy.jp/assets/images/icon_notification-active.svg">
+                <img class="inactive" src="https://aiacademy.jp/assets/images/icon_notification.svg">
+                通知
+              </a>
+            </li>
+            <li>
+              <a href="/admin">
+                <img class="active" src={% static "images/item/icon_setting-active.svg" %}>
+                <img class="inactive" src={% static "images/item/icon_setting.svg" %}>
+                管理サイト
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img class="active" src="https://aiacademy.jp/assets/images/icon_mypage-active.svg">
+                <img class="inactive" src="https://aiacademy.jp/assets/images/icon_mypage.svg">
+                {% if user.is_authenticated %}
+                {{ user.username }}さんマイページ
+                {% else %}
+                マイページ
+                {% endif %}
+              </a>
+            </li>
+            <li>
+              <a href="/accounts/logout">
+                <img class="active" src="https://aiacademy.jp/assets/images/icon_mypage-active.svg">
+                <img class="inactive" src="https://aiacademy.jp/assets/images/icon_mypage.svg">
+                ログアウト
+              </a>
+            </li>
+          </ul>
+      </nav>
+    </header>
+
+    <div class="flex">
+      <div class="sidebar">
+        {% if user.is_authenticated %}
+        <ul class = "nab" style="text-align:left;">
+          <li><a href = {% url "item:top_page" %}>学習サイト</a></li>
+          {% if user.auth_view %}
+          <li><a href = {% url "item:top_page" %}>テスト結果確認</a></li>
+          {% if user.auth_edit %}
+          <li><a href = {% url "mente:shou_registration" %}>章登録ページ</a></li>
+          <li><a href = {% url "mente:pre_registration" %}>問題登録ページ</a></li>
+          <li><a href = {% url "mente:pre_edit" %}>問題編集ページ</a></li>
+          <li><a href = {% url "mente:pre_delete" %}>問題削除ページ</a></li>
+          {% endif %}
+          {% endif %}
+        </ul>
+        {% endif %}
+      </div>
+
+      <div class = "main-container">
+        <div class = "contents">
+          {% block contents %}
+
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+    <p>入力画面</p>
+
+    <form action="{% url 'item:sample_post' %}" method="post">
+      {% csrf_token %}
+
+      {% for form_ in form %}
+
+      <ul>
+      {{form_}}
+      </ul>
+
+
+      {% endfor %}
+
+      <button type="submit" name="登録" value="登録" onclick="check()">
+
+
+    </form>
+{% endblock %}

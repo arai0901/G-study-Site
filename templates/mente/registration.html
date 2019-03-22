@@ -1,0 +1,49 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>問題登録ページ</h2>
+
+
+<form action="{% url 'mente:registration' shou_id=shou_id %}" method="post">
+
+{% csrf_token %}
+<table>
+
+<!--
+  <tr>
+    <th>問題タイトル</th><td>{{form.title}}</td>
+  </tr>
+  <tr>
+    <th>問題文</th><td>{{form.prob_bun}}</td>
+  </tr>
+  <tr>
+    <th>選択肢１</th><td>{{form.sentaku_1}}</td>
+  </tr>
+  <tr>
+    <th>選択肢２</th><td>{{form.sentaku_2}}</td>
+  </tr>
+  <tr>
+    <th>選択肢３</th><td>{{form.sentaku_3}}</td>
+  </tr>
+  <tr>
+    <th>選択肢４</th><td>{{form.sentaku_4}}</td>
+  </tr>
+  <tr>
+    <th>正解番号</th><td>{{form.seikai}}</td>
+  </tr>
+  <tr>
+    <th>解説</th><td>{{form.kaisetsu}}</td>
+  </tr>
+
+-->
+
+{{form}}
+
+</table>
+<button type="submit" name="登録" value="登録" onclick="check()">登録</button>
+
+</form>
+
+
+{% endblock %}

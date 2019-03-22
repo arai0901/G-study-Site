@@ -1,0 +1,72 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>ようこそ、企業名：{{user.corp}}、ユーザーID：{{user.id}}の「{{user.username}}」さん</h2>
+<h2>学習進捗</h2>
+
+<table clas="inline-block">
+</table>
+
+<table clas="inline-block">
+</table>
+
+<table>
+<tr>
+  <td>
+    <table class="table-two">
+      <tr>
+        <th></th>
+        <th>回答率</th>
+        <th>正解率</th>
+      </tr>
+      <tr>
+        <td><p><a href={% url "item:prob_list" 1 %}>１章</a></p></td>
+        <td>{{shintyoku_ritsu.0}}％</td>
+        <td>{{seikai_ritsu.0}}％</td>
+      </tr>
+
+      <tr>
+        <td><p><a href={% url "item:prob_list" 2 %}>２章</a></p></td>
+        <td>{{shintyoku_ritsu.1}}％</td>
+        <td>{{seikai_ritsu.1}}％</td>
+      </tr>
+
+      <tr>
+        <td><p><a href={% url "item:prob_list" 3 %}>３章</a></p></td>
+        <td>{{shintyoku_ritsu.2}}％</td>
+        <td>{{seikai_ritsu.2}}％</td>
+      </tr>
+
+    </table>
+  </td>
+  <td>
+    <table class="table-two">
+        <tr>
+          <th></th>
+          <th>回答率</th>
+          <th>正解率</th>
+        </tr>
+        <tr>
+          <td><p><a href={% url "item:prob_list" 4 %}>４章</a></p></td>
+          <td>{{shintyoku_ritsu.3}}％</td>
+          <td>{{seikai_ritsu.3}}％</td>
+        </tr>
+
+        <tr>
+          <td><p><a href={% url "item:prob_list" 5 %}>５章</a></p></td>
+          <td>{{shintyoku_ritsu.4}}％</td>
+          <td>{{seikai_ritsu.4}}％</td>
+        </tr>
+
+        <tr>
+          <td><p><a href={% url "item:prob_list" 6 %}>６章</a></p></td>
+          <td>{{shintyoku_ritsu.5}}％</td>
+          <td>{{seikai_ritsu.5}}％</td>
+        </tr>
+    </table>
+  </td>
+</tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>問題編集ページ</h2>
+<h3>編集したい問題を選択して下さい</h3>
+
+
+<table>
+
+  <tr>
+    <th>章番号</th>
+    <th>問題番号</th>
+    <th>問題タイトル</th>
+  </tr>
+
+  {% for prob in probs %}
+  <tr>
+    <th>{{prob.shou_id}}</th>
+    <th>{{prob.prob_num}}</th>
+    <th style="text-align:left; padding-left:20px;"><a href={% url "mente:edit" pk=prob.id %}>{{prob.title}}</a></th>
+  </tr>
+  {% endfor %}
+
+</table>
+
+
+{% endblock %}

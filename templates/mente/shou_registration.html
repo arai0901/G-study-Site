@@ -1,0 +1,21 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>問題登録ページ</h2>
+
+
+<form action="{% url 'mente:shou_registration' %}" method="post">
+
+{% csrf_token %}
+<table>
+
+{{form}}
+
+</table>
+<button type="submit" name="登録" value="登録" onclick="check()">登録</button>
+
+</form>
+
+
+{% endblock %}

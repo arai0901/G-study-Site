@@ -1,0 +1,21 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>問題編集ページ</h2>
+
+
+<form method="post">
+
+<table>
+  {{form}}
+</table>
+
+
+<button type="submit" name="登録" value="登録" onclick="check()">保存</button>
+
+  {% csrf_token %}
+</form>
+
+
+{% endblock %}
