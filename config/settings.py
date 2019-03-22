@@ -1,6 +1,6 @@
 import os
 import sys
-import urlparse
+import urllib.parse
 import dj_database_url
 
 urlparse.uses_netloc.append('mysql')
@@ -76,7 +76,7 @@ try:
     if 'DATABASES' not in locals():
         DATABASES = {}
     if 'DATABASE_URL' in os.environ:
-        url = urlparse.urlparse(os.environ['DATABASE_URL'])
+        url = urlparse.parse(os.environ['DATABASE_URL'])
         DATABASES['default'] = DATABASES.get('default', {})
         DATABASES['default'].update({
             'NAME': url.path[1:],
