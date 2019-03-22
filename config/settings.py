@@ -1,6 +1,6 @@
 import os
 import sys
-import urllib.parse
+from urllib import parse
 import dj_database_url
 
 parse.uses_netloc.append('mysql')
@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
+"""
 try:
     if 'DATABASES' not in locals():
         DATABASES = {}
@@ -104,7 +104,6 @@ DATABASES = {
     }
 }
 """
-"""
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.mysql',
@@ -116,6 +115,7 @@ DATABASES = {
     }
 }
 """
+
 WSGI_APPLICATION = 'config.wsgi.application'
 ALLOWED_HOSTS = ['gstudy2.herokuapp.com']
 
@@ -149,14 +149,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+"""
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
-
+"""
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
