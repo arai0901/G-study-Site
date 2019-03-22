@@ -76,7 +76,7 @@ try:
     if 'DATABASES' not in locals():
         DATABASES = {}
     if 'DATABASE_URL' in os.environ:
-        url = urlparse.parse(os.environ['DATABASE_URL'])
+        url = parse.parse(os.environ['DATABASE_URL'])
         DATABASES['default'] = DATABASES.get('default', {})
         DATABASES['default'].update({
             'NAME': url.path[1:],
