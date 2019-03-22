@@ -72,11 +72,11 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'config.wsgi.application'
+"""
 try:
     if 'DATABASES' not in locals():
         DATABASES = {}
     if 'DATABASE_URL' in os.environ:
-        DATABASES = {}
         url = parse.parse(os.environ['DATABASE_URL'])
         DATABASES['default'] = DATABASES.get('default', {})
         DATABASES['default'].update({
@@ -103,7 +103,6 @@ DATABASES = {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
-"""
 """
 DATABASES = {
     'default': {
