@@ -45,13 +45,15 @@ class Top_page(LoginRequiredMixin, View):
                     else:
                         seikai_ritsu.append(100)
         ritsu = []
+        shou = Shou.objects.all()[0].id
         for i in range(len(seikai_ritsu)):
             ritsu_ = []
-            ritsu_.append( i + 1)
+            ritsu_.append(shou)
             ritsu_.append(shou_name[i].shou_name)
             ritsu_.append(shintyoku_ritsu[i])
             ritsu_.append(seikai_ritsu[i])
             ritsu.append(ritsu_)
+            shou += 10
 
         context = {'user_id':user_id, 'user_name':user_name,\
                 'shintyoku_ritsu':shintyoku_ritsu, 'seikai_ritsu':seikai_ritsu, 'ritsu':ritsu}
