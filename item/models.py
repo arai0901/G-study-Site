@@ -43,5 +43,5 @@ class Shintyoku(models.Model):
     kaiin = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     shou = models.ForeignKey(Shou, on_delete=models.CASCADE)
     prob = models.ForeignKey(Prob, on_delete=models.CASCADE)
-    seigo = models.CharField('正誤', max_length=255, null=True, blank=True),
+    seigo = models.CharField('正誤', max_length=255)
     answer_date = models.DateField('最終回答日', null=True, blank=True)
