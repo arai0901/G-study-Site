@@ -49,6 +49,7 @@ class Top_page(LoginRequiredMixin, View):
         for i in range(len(seikai_ritsu)):
             ritsu_ = []
             ritsu_.append(shou)
+            ritsu_.append(i + 1)
             ritsu_.append(shou_name[i].shou_name)
             ritsu_.append(shintyoku_ritsu[i])
             ritsu_.append(seikai_ritsu[i])
