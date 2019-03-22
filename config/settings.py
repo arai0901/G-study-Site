@@ -103,6 +103,8 @@ DATABASES = {
     }
 }
 """
+WSGI_APPLICATION = 'config.wsgi.application'
+ALLOWED_HOSTS = ['gstudy2.herokuapp.com']
 
 
 AUTH_PASSWORD_VALIDATORS = [
