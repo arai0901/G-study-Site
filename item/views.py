@@ -111,11 +111,11 @@ class Answer_page(LoginRequiredMixin, View):
         except:
             shou_id_max = Shou.objects.all().order_by('-id')[0].id
             if shou_id_ != shou_id_max:
-                shou_id_ = shou_id_ + 1
+                shou_id_ = shou_id_ + 10
                 prob_num = 1
                 return redirect(reverse('item:answer_page', args=[shou_id_ ,prob_num]))
             else:
-                shou_id_ = 1
+                shou_id_ = Shou.objects.all()[0].id
                 prob_num = 1
                 return redirect(reverse('item:answer_page', args=[shou_id_ ,prob_num]))
 
@@ -124,7 +124,7 @@ class Answer_page(LoginRequiredMixin, View):
         answer = int(request.POST.getlist('選択肢')[0])
         shou_id = kwargs['shou_id']
         prob_num = int(kwargs['prob_num'])
-        next_id = prob_num + 1
+        next_id = prob_num + 10
         prob = Prob.objects.filter(shou_id=shou_id, prob_num=prob_num)[0]
         true_ = prob.seikai
         if true_ == answer:
