@@ -70,8 +70,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
 
+WSGI_APPLICATION = 'config.wsgi.application'
+"""
 try:
     if 'DATABASES' not in locals():
         DATABASES = {}
@@ -89,7 +90,6 @@ try:
             DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
 except Exception:
     print('Unexpected error:', sys.exc_info())
-
 """
 DATABASES = {
     'default': {
@@ -103,7 +103,6 @@ DATABASES = {
            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
-"""
 """
 DATABASES = {
     'default': {
