@@ -13,17 +13,18 @@ class Top_page(LoginRequiredMixin, View):
         user_name = request.user.get_username
         shou_kensu = Shou.objects.filter().count()
         shou_name = Shou.objects.all()
-
+        shou_num = int(Shou.objects.all()[0].id)
 
         mondai_kensu = []
         for i in range(shou_kensu):
-            kensu_ = Prob.objects.filter(shou_id=i+1).count()
+            kensu_ = Prob.objects.filter(shou_id=shou_num).count()
             mondai_kensu.append(kensu_)
-
             shintyoku_kensu = []
             shintyoku_ritsu = []
             seikai_ritsu = []
-            shou_num = int(Shou.objects.all()[0].id)
+            shou_num += 10
+
+        shou_num = int(Shou.objects.all()[0].id)
         for i in range(shou_kensu):
             kensu_ = Shintyoku.objects.filter(kaiin_id=user_id, shou_id=shou_num).count()
             shintyoku_kensu.append(kensu_)
