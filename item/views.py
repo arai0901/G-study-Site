@@ -95,7 +95,7 @@ class Prob_list(LoginRequiredMixin, View):
         shou_name = Shou.objects.filter(id = shou_id_)[0].shou_name
 
 
-        context = {'statuses':statuses, 'shou_id':int(shou_id_ - 2)/10, 'shou_name':shou_name}
+        context = {'statuses':statuses, 'shou_id':int((shou_id_ - 2)/10), 'shou_name':shou_name}
         return render(request, 'item/prob_list.html', context=context)
 
 prob_list = Prob_list.as_view()
