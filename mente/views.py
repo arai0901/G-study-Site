@@ -77,9 +77,9 @@ class Pre_edit(LoginRequiredMixin, View):
 
         forms = []
         for prob in probs:
-            froms.append( [ prob, int((prob.shou_id - 2)/10) ] )
+            forms.append( [ prob, int((prob.shou_id - 2)/10) ] )
 
-        context = {'form':form}
+        context = {'forms':forms}
 
         return render(request, 'mente/pre_edit.html', context=context)
 
