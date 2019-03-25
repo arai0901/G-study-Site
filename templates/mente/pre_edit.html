@@ -16,9 +16,9 @@
 
   {% for form in forms %}
   <tr>
-    <th>{{form.1.shou_id}}</th>
+    <th>{{form.1}}</th>
     <th>{{form.0.prob_num}}</th>
-    <th style="text-align:left; padding-left:20px;"><a href={% url "mente:edit" pk=prob.0.id %}>{{form.0.title}}</a></th>
+    <th style="text-align:left; padding-left:20px;"><a href={% url "mente:edit" pk=form.0.id %}>{{form.0.title}}</a></th>
   </tr>
   {% endfor %}
 

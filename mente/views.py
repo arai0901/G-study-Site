@@ -96,6 +96,12 @@ class Pre_delete(LoginRequiredMixin, View):
         probs = Prob.objects.all().order_by('prob_num').order_by('shou_id')
         context = {'probs':probs}
 
+        forms = []
+        for prob in probs:
+            forms.append( [ prob, int((prob.shou_id - 2)/10) ] )
+
+        context = {'forms':forms}
+
         return render(request, 'mente/pre_delete.html', context=context)
 
 pre_delete = Pre_delete.as_view()
