@@ -72,7 +72,14 @@ registration = Registration.as_view()
 class Pre_edit(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         probs = Prob.objects.all().order_by('prob_num').order_by('shou_id')
-        context = {'probs':probs}
+
+        shou_num = probs
+
+        forms = []
+        for prob in probs:
+            froms.append( [ prob, int((prob.shou_id - 2)/10) ] )
+
+        context = {'form':form}
 
         return render(request, 'mente/pre_edit.html', context=context)
 

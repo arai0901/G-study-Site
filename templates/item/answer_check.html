@@ -15,18 +15,18 @@
   </tr>
 
   <tr>
-    <th style="font-size:20px;">　解説：</th>
-    <td><p>{{prob.kaisetsu}}</p></td>
+    <th style="font-size:20px;"><span>　解説：</span></th>
+    <td><p>{{ prob.kaisetsu| linebreaksbr }}</p></td>
   </tr>
 
   <tr>
     <th style="font-size:20px;">選択肢：</th>
     <td><p>{{answer}}番</p></td>
   </tr>
+</table>
 
+<table>
   <tr>
-    <th></th>
-    <td></td>
     <td style="padding:0 5px 0 5px;"><a href={% url "item:answer_page" shou_id=shou_id prob_num=prob_num %}>もう一度</a></td>
     <td style="padding:0 5px 0 5px;"><a href={% url "item:answer_page" shou_id=shou_id prob_num=next_id %}>次へ</a></td>
     <td style="padding:0 5px 0 5px;"><a href={% url "item:prob_list" prob.shou_id %}>問題一覧へ</a></td>

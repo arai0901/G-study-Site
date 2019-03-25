@@ -95,7 +95,7 @@ class Prob_list(LoginRequiredMixin, View):
         shou_name = Shou.objects.filter(id = shou_id_)[0].shou_name
 
 
-        context = {'statuses':statuses, 'shou_id':shou_id_, 'shou_name':shou_name}
+        context = {'statuses':statuses, 'shou_id':(shou_id_ - 2)/10, 'shou_name':shou_name}
         return render(request, 'item/prob_list.html', context=context)
 
 prob_list = Prob_list.as_view()
@@ -125,7 +125,7 @@ class Answer_page(LoginRequiredMixin, View):
         answer = int(request.POST.getlist('選択肢')[0])
         shou_id = kwargs['shou_id']
         prob_num = int(kwargs['prob_num'])
-        next_id = prob_num + 10
+        next_id = prob_num + 1
         prob = Prob.objects.filter(shou_id=shou_id, prob_num=prob_num)[0]
         true_ = prob.seikai
         if true_ == answer:

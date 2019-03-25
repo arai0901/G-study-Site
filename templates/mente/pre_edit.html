@@ -14,11 +14,11 @@
     <th>問題タイトル</th>
   </tr>
 
-  {% for prob in probs %}
+  {% for form_ in form %}
   <tr>
-    <th>{{prob.shou_id}}</th>
-    <th>{{prob.prob_num}}</th>
-    <th style="text-align:left; padding-left:20px;"><a href={% url "mente:edit" pk=prob.id %}>{{prob.title}}</a></th>
+    <th>{{form_.1.shou_id}}</th>
+    <th>{{prob.0.prob_num}}</th>
+    <th style="text-align:left; padding-left:20px;"><a href={% url "mente:edit" pk=prob.id %}>{{prob.0.title}}</a></th>
   </tr>
   {% endfor %}
 
