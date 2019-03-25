@@ -104,14 +104,17 @@ class Answer_page(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         shou_id_ = kwargs['shou_id']
         prob_num = kwargs['prob_num']
-
+        print('here1', shou_id_)
         try:
+            print('here2', shou_id_)
             prob_ = Prob.objects.filter(shou_id=shou_id_, prob_num=prob_num)[0]
             context = {'prob_':prob_, 'prob_num':prob_num, 'shou_id':shou_id_}
             return render(request, 'item/answer_page.html', context=context)
         except:
             shou_id_max = Shou.objects.all().order_by('-id')[0].id
             if shou_id_ != shou_id_max:
+
+                print('here3', shou_id_)
                 shou_id_ = shou_id_ + 10
                 prob_num = 1
                 return redirect(reverse('item:answer_page', args=[shou_id_ ,prob_num]))
