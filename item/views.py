@@ -116,7 +116,7 @@ class Answer_page(LoginRequiredMixin, View):
                 prob_num = 1
                 return redirect(reverse('item:answer_page', args=[shou_id_ ,prob_num]))
             else:
-                shou_id_ = Shou.objects.all()[0].id
+                shou_id_ = Shou.objects.all().order_by('id')[0].id
                 prob_num = 1
                 return redirect(reverse('item:answer_page', args=[shou_id_ ,prob_num]))
 
