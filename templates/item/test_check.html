@@ -4,15 +4,15 @@
 
 <h2>テスト結果：{{user.corp}}様</h2>
 
-<table style="width:30%;">
+<table>
   <tr>
     <th>お名前</th>
     <th>正解率</th>
   </tr>
 {% for context_ in contexts_ %}
-  <tr>
-    <th>{{context_.user_name}} 様</th>
-    <th>{{context_.score}}</th>
+  <tr style='text-align:center;'>
+    <td>{{context_.user_name}} 様</td>
+    <td>{{context_.score}}</td>
   </tr>
 {% endfor %}
 </table>
