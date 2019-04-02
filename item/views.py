@@ -154,7 +154,17 @@ class Test_check(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         corp_id = request.user.corp_id
         user_lists = CustomUser.objects.filter(corp_id=corp_id)
-        context = {'user_lists':user_lists}
+        context_ = []
+
+        for user_list in user_lists:
+            user_name = user_list.first_name
+            user_id = user_list.id
+            正解数 = Shintyoku.objects.filter(kaiin_id=user_id, seigo='正解').count()
+            不正解数 = Shintyoku.objects.filter(kaiin_id=user_id, seigo='不正解').count()
+            score = 正解数 / (正解数 + 不正解数)
+            contexts_.append({'user_name':user_name, 'score':score})
+
+        context = {'contexts_':contexts_}
 
         return render(request, 'item/test_check.html', context=context)
 

@@ -10,10 +10,10 @@
     <th>正解率</th>
     <th>●</th>
   </tr>
-{% for user_list in user_lists %}
+{% for context_ in contexts_ %}
   <tr>
-    <th>{{user_list.name}}</th>
-    <th>{{user_list.corp}}</th>
+    <th>{{context_.first_name}} 様</th>
+    <th>{{context_.score}}</th>
     <th>{{user_list.}}</th>
   </tr>
 {% endfor %}
