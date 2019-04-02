@@ -154,7 +154,7 @@ class Test_check(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         corp_id = request.user.corp_id
         user_lists = CustomUser.objects.filter(corp_id=corp_id)
-        context_ = []
+        contexts_ = []
 
         for user_list in user_lists:
             user_name = user_list.first_name
