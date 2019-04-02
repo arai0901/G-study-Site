@@ -163,7 +163,7 @@ class Test_check(LoginRequiredMixin, View):
             不正解数 = Shintyoku.objects.filter(kaiin_id=user_id, seigo='不正解').count()
 
             if (正解数 + 不正解数) != 0:
-                score = int(100 * 正解数 / (正解数 + 不正解数))
+                score = str(int(100 * 正解数 / (正解数 + 不正解数)), '点')
             else:
                 score = "テスト未実施"
             contexts_.append({'user_name':user_name, 'score':score})
