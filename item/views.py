@@ -161,7 +161,11 @@ class Test_check(LoginRequiredMixin, View):
             user_id = user_list.id
             正解数 = Shintyoku.objects.filter(kaiin_id=user_id, seigo='正解').count()
             不正解数 = Shintyoku.objects.filter(kaiin_id=user_id, seigo='不正解').count()
-            score = 正解数 / (正解数 + 不正解数)
+
+            if (正解数 + 不正解数) != 0:
+                score = 正解数 / (正解数 + 不正解数)
+            else:
+                score = 0
             contexts_.append({'user_name':user_name, 'score':score})
 
         context = {'contexts_':contexts_}
