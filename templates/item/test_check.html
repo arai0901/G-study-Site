@@ -2,9 +2,9 @@
 
 {% block contents %}
 
-<h2>{{user.corp}}様 テスト結果</h2>
+<h2>テスト結果：{{user.corp}}様</h2>
 
-<table>
+<table style="width:40%;">
   <tr>
     <th>お名前</th>
     <th>正解率</th>
@@ -12,7 +12,7 @@
 {% for context_ in contexts_ %}
   <tr>
     <th>{{context_.user_name}} 様</th>
-    <th>{{context_.score}}点</th>
+    <th>{{context_.score}}</th>
   </tr>
 {% endfor %}
 </table>
