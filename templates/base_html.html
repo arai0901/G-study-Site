@@ -43,7 +43,7 @@
         <ul class = "nab" style="text-align:left;">
           <li><a href = {% url "item:top_page" %}>マイページ</a></li>
           {% if user.auth_view %}
-          <li><a href = {% url "item:top_page" %}>テスト結果確認</a></li>
+          <li><a href = {% url "item:test_check" %}>テスト結果確認</a></li>
           {% if user.auth_edit %}
           <li><a href = {% url "mente:shou_registration" %}>章登録ページ</a></li>
           <li><a href = {% url "mente:pre_registration" %}>問題登録ページ</a></li>

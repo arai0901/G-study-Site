@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.models import User
-from item.models import Shou, Prob, Shintyoku
+from item.models import Shou, Prob, Shintyoku, CustomUser
 from django.urls import reverse
 import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -149,3 +149,13 @@ class Answer_page(LoginRequiredMixin, View):
         return render(request, 'item/answer_check.html', context=context)
 
 answer_page = Answer_page.as_view()
+
+class Test_check(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        corp_id = request.user.corp_id
+        user_list = CustomUser.objects.filter(corp_id=corp_id)
+        context = {'user_list':user_list}
+
+        return render(request, 'item/test_check.html', context=context)
+
+test_check = Test_check.as_view()

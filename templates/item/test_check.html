@@ -1,0 +1,24 @@
+{% extends 'base_html.html' %}
+
+{% block contents %}
+
+<h2>{{user.corp}}様 テスト結果</h2>
+
+<table>
+  <tr>
+    <th>問題番号</th>
+    <th>タイトル</th>
+    <th>ステータス</th>
+  </tr>
+{% for status in statuses %}
+  <tr>
+    <th>{{status.prob_num}}</th>
+    <th style="text-align:left; padding-left:20px;">
+      <a href= {% url "item:answer_page" shou_id=shou_id_ prob_num=status.prob_num %}> {{status.prob_title}} </a>
+    </th>
+    <th>{{status.prob_status}}</th>
+  </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
