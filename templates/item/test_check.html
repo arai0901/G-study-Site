@@ -6,17 +6,15 @@
 
 <table>
   <tr>
-    <th>問題番号</th>
-    <th>タイトル</th>
-    <th>ステータス</th>
+    <th>お名前</th>
+    <th>正解率</th>
+    <th>●</th>
   </tr>
-{% for status in statuses %}
+{% for user_list in user_lists %}
   <tr>
-    <th>{{status.prob_num}}</th>
-    <th style="text-align:left; padding-left:20px;">
-      <a href= {% url "item:answer_page" shou_id=shou_id_ prob_num=status.prob_num %}> {{status.prob_title}} </a>
-    </th>
-    <th>{{status.prob_status}}</th>
+    <th>{{user_list.name}}}</th>
+    <th>{{user_list.corp}}</th>
+    <th>{{user_list.}}</th>
   </tr>
 {% endfor %}
 </table>
